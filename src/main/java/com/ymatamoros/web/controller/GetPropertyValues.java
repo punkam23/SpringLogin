@@ -16,6 +16,7 @@ public class GetPropertyValues {
     public String getPropValues() throws IOException {
 
         try {
+            
             Properties prop = new Properties();
             String propFileName = "config.properties";
 
@@ -26,7 +27,7 @@ public class GetPropertyValues {
             } else {
                 throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
             }
-             
+
             // get the property value and print it out
             String restrictedWords = prop.getProperty("restrictedWords");
             result = restrictedWords;
