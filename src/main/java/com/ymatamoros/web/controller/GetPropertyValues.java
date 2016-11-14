@@ -16,7 +16,7 @@ public class GetPropertyValues {
     public String getPropValues() throws IOException {
 
         try {
-            
+
             Properties prop = new Properties();
             String propFileName = "config.properties";
 

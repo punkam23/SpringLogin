@@ -2,6 +2,8 @@ package com.ymatamoros.web.controller.CustomValidation;
 
 
 import java.lang.annotation.Annotation;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
@@ -19,9 +21,13 @@ public class UserValidator implements ConstraintValidator<User, String> {
 
     @Override
     public boolean isValid(String t, ConstraintValidatorContext constraintValidatorContext) {
-        if( user.caseSensitive() )
-            return t.length()<7;
-        else
+        boolean result = false;
+        if(user.verifySpecialChar()){
+            Pattern p = Pattern.compile("[^A-Za-z0-9]");//. represents single character
+            boolean b = p.matcher(t.toString()).find();
+            return !(b);
+        }else{
             return true;
+        }
     }
 }
