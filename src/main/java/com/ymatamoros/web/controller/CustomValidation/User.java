@@ -27,9 +27,10 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @NotNull
 public @interface User {
 
-    boolean caseSensitive() default false;
 
-    String message() default "User Name must be less than 6 characters";
+    boolean verifySpecialChar() default false;
+
+    String message() default "User Name Contains special characters";
 
     Class<?>[] groups() default {};
 
