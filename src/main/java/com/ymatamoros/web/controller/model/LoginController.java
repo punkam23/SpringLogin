@@ -118,7 +118,7 @@ public class LoginController{
                 while (count < 15) {
                     Random rand = new Random();
                     int value = rand.nextInt((max - min) + 1) + min;
-                    newUserName = username + value;
+                    newUserName = (username + value).substring(0,6);
                     checkUsername(newUserName);
                     alternatives.add(newUserName);
                     count++;
